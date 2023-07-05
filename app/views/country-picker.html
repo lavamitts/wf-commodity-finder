@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Home" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ serviceName }}
+      </h1>
+
+      <form action="/decision_handler" method="get">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="sort">
+          Select the origin of your product from the list
+        </label>
+          <select class="govuk-select" id="location-autocomplete" name="country">
+            {% for country in country_list %}
+              <option value="{{ country[1] }}">{{ country[0] }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <input type="hidden" name="screen" id="screen" value="country-picker"/>
+        <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+      </form>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/public/javascripts/location-autocomplete.min.js"></script>
+  <script type="text/javascript">
+    openregisterLocationPicker({selectElement: document.getElementById('location-autocomplete'), url: '/assets/location-autocomplete-graph.json'})
+  </script>
+
+{% endblock %}

@@ -4,3 +4,16 @@
 // 
 
 // Add extra styles here
+@import "components/search";
+@import "location-autocomplete.min";
+
+#location-autocomplete__listbox {
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+
+    li.autocomplete__option {
+        font-weight: normal !important;
+    }
+}

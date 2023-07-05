@@ -1,0 +1,17 @@
+table.search-results {
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding:0px !important;
+    margin:1em 0px !important;
+
+    font-size: 19px;
+
+    tr {
+        td {
+            padding-left: 0px !important;
+            margin-left: 0px !important;
+        }
+
+    }
+}

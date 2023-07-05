@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Home" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ serviceName }}
+      </h1>
+
+      <p class="govuk-body">
+        For moving goods from England, Scotland or Wales into Northern Ireland, even if they do not originate
+        in Great Britain, you may be able to
+        declare your goods at 6, 8 or 10 digits, depending on a number of criteria.
+
+        </p>
+      <p>
+        This tool takes you through the steps to work out which level of granularity you need.
+      </p>
+
+      <p class="govuk-body">
+        Different rules may apply, depending on where the goods originate.
+      </p>
+
+      <form action="/decision_handler" method="get">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Where do your goods originate?
+              </h1>
+            </legend>
+            <div id="changed-name-hint" class="govuk-hint">
+              Different rules may apply, depending on where the goods originate.
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="origin-gb" name="origin" type="radio" value="gb">
+                <label class="govuk-label govuk-radios__label" for="origin-gb">
+                  My goods originate in England, Wales or Scotland
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="origin-row" name="origin" type="radio" value="row">
+                <label class="govuk-label govuk-radios__label" for="origin-row">
+                  My goods originate from outside of Great Britain
+                </label>
+              </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+        <input type="hidden" name="screen" id="screen" value="originate"/>
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      {# {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %} #}
+    </div>
+  </div>
+
+{% endblock %}
